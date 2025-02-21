@@ -14,5 +14,3 @@ int main(){
     return 0;
 
 }
-
-/* printf("Answer: %s\n", answer); */
