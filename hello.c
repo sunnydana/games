@@ -5,12 +5,21 @@ int main(){
     char answer[100];
     printf("How's the gabagool?\n");
     scanf("%s", answer);
-    if(strcmp(answer, "bad") == 0){
-        printf("Whadaya gonna do");
+    printf("Answer: %s\n", answer);
+
+    int number;
+    printf("Enter a number:\n");
+    scanf("%d", &number);
+
+    if (number < 0){
+        printf("The number is negative");
     }
-    else if(strcmp(answer, "good") == 0){
-        printf("Alright, so have another!");
+    else if (number > 0){
+        printf("The number is positive");
     }
-    return 0;
+    else {
+        printf("The number is neither positive or negative");
+    }
+
 
 }
