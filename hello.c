@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<string.h>
 int main(){
-    printf("Hello Al\n");
+    printf("Hello vietenammmm\n");
     char answer[100];
     printf("How's the gabagool?\n");
     scanf("%s", answer);
