@@ -1,13 +1,23 @@
 #include<stdio.h>
 #include<string.h>
 #include<stdlib.h>
+#include<time.h>
 int main(){
     printf("Hello Vietnam\n");
     char answer[100];
     printf("How's the gabagool?\n");
     scanf("%s", answer);
     printf("Answer: %s\n", answer);
-    printf("Random number: %d\n", rand());
+   
+   srand(time(0)); 
+   int randomNumber = rand();
+   char numberAsk[10];
+   printf("Type 'number' for random number\n");
+   scanf("%s", numberAsk);
+   if (strcmp(numberAsk, "number" ) == 0){
+    printf("%d\n", randomNumber);
+   }
+
 
     int number;
     while(1){
@@ -21,6 +31,7 @@ int main(){
     }
     else {
         printf("The number is neither positive or negative\n");
+        break;
     }
     }
 
