@@ -1,11 +1,13 @@
 #include<stdio.h>
 #include<string.h>
+#include<stdlib.h>
 int main(){
     printf("Hello Vietnam\n");
     char answer[100];
     printf("How's the gabagool?\n");
     scanf("%s", answer);
     printf("Answer: %s\n", answer);
+    printf("Random number: %d\n", rand());
 
     int number;
     while(1){
@@ -21,6 +23,7 @@ int main(){
         printf("The number is neither positive or negative\n");
     }
     }
+
     return 0;
 
 
