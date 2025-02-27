@@ -35,6 +35,16 @@ int main(){
     }
     }
 
+    int numberGuess;
+    while(1){
+        printf("Guess the number\n");
+        scanf("%d", &numberGuess);
+        if (numberGuess == 9){
+            printf("Correct!");
+            break;
+        }
+    }
+
     return 0;
 
 
