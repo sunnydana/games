@@ -3,22 +3,37 @@
 #include<stdlib.h>
 #include<time.h>
 
-
 int main(){
 
     srand(time(0));
 
-    int number = rand();
+    int number = (rand() % 100) + 1; 
     int numberGuess;
 
     printf("Hello! Welcome to Gabagool World\n");
-    printf("Enter a number between 1 to 100\n");
-    scanf("%d", &numberGuess);
-    if (numberGuess == number){
-        printf("Congratulations! You Win!");
-    }
-    else {
-        printf("Incorrect! Try again Punk\n");
+
+    while(1){
+      printf("Enter a number between 1 to 100\n");
+
+      if (scanf("%d", &numberGuess) != 1) {
+        printf("Number guesses only!\n");
+
+        while (getchar() != '\n');
+        continue;
+      }
+
+      if (numberGuess == number){
+         printf("Congratulations! You Win!");
+         break;
+      }
+      else {
+          printf("Incorrect! Try again Punk\n");
+      }
     }
 
+    return 0;
+ 
+
 }
+
+
