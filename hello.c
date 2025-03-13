@@ -9,6 +9,7 @@ int main(){
 
     int number = (rand() % 10) + 1; 
     int numberGuess;
+    int counter = 0;
 
     printf("Hello! Welcome to Gabagool World\n");
 
@@ -23,12 +24,14 @@ int main(){
       }
 
       if (numberGuess == number){
-         printf("Congratulations! You Win!");
+         printf("Congratulations! You Win!\n");
+         printf("You tried %d times\n", counter);
          break;
       }
       else {
           printf("Incorrect! Try again Punk\n");
       }
+      counter++;
     }
 
     return 0;
