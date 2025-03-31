@@ -5,10 +5,11 @@
 int main(){
     srand(time(0));
 
-    int randomNum = (rand() % 3) + 1; 
+    
     int number;
 
     while(number != 0){
+    int randomNum = (rand() % 3) + 1; 
 
     printf("Enter '1' for Rock, '2' for Paper, '3' for Scissors, or '0' to quit:\n");
     scanf("%d", &number);
