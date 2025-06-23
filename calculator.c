@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <string.h>
+
 
     int add(int num1, int num2, char operator) {
         int sum = num1 + num2;
