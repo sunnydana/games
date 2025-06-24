@@ -4,41 +4,39 @@
 
 
 int maximizePower(int num1, int num2, int num3, char mode){
+    int biggestNum;
     if(num1 > num2 && num1 > num3 && mode == 'M'){
-        printf("You selected: Maximize Power\n");
-        printf("Result: The Arc Reactor will use the highest energy level: %d \n", num1);
-        printf("Power successfully calibrated. Ready for flight.\n");
+        biggestNum = num1;
     }
     else if(num2 > num1 && num2 > num3 && mode == 'M'){
-        printf("You selected: Maximize Power\n");
-        printf("Result: The Arc Reactor will use the highest energy level: %d \n", num2);
-        printf("Power successfully calibrated. Ready for flight.\n");
+        biggestNum = num2;
     }
     else if(num3 > num1 && num3 > num2 && mode == 'M'){
-        printf("You selected: Maximize Power\n");
-        printf("Result: The Arc Reactor will use the highest energy level: %d \n", num3);
-        printf("Power successfully calibrated. Ready for flight.\n");
+        biggestNum = num3;
     }
+    printf("You selected: Maximize Power\n");
+    printf("Result: The Arc Reactor will use the highest energy level: %d \n", biggestNum);
+    printf("Power successfully calibrated. Ready for flight.\n");
+
     return 0;
 }
 
 
 int limitPower(int num1, int num2, int num3, char mode){
+    int smallestNum;
     if(num1 < num2 && num1 < num3 && mode == 'L'){
-        printf("You selected: Limit Power\n");
-        printf("Result: The Arc Reactor will use the limited power energy level: %d \n", num1);
-        printf("Power successfully calibrated. Ready for flight.\n");
+        smallestNum = num1;
     }
     else if(num2 < num1 && num2 < num3 && mode == 'L'){
-        printf("You selected: Limit Power\n");
-        printf("Result: The Arc Reactor will use the limited power energy level: %d \n", num2);
-        printf("Power successfully calibrated. Ready for flight.\n");
+        smallestNum = num2;
     }
     else if(num3 < num1 && num3 < num2 && mode == 'L'){
-        printf("You selected: Limit Power\n");
-        printf("Result: The Arc Reactor will use the limited power energy level: %d \n", num3);
-        printf("Power successfully calibrated. Ready for flight.\n");
+        smallestNum = num3;
     }
+    printf("You selected: Limit Power\n");
+    printf("Result: The Arc Reactor will use the limited power energy level: %d \n", smallestNum);
+    printf("Power successfully calibrated. Ready for flight.\n");
+
     return 0;
 }
 
