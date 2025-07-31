@@ -9,6 +9,18 @@ typedef struct { //typedef is for a shortcut name for a data type to make code e
     int h;
 } Player;
 
+void drawCircle(SDL_Renderer* renderer, int centerX, int centerY, int radius) {
+    for (int w = 0; w < radius * 2; w++) {
+        for (int h = 0; h < radius * 2; h++) {
+            int dx = radius - w; //how far a pixel is from the center of the circle horizontally
+            int dy = radius - h; //& vertically
+            if ((dx*dx + dy*dy) <= (radius * radius)) { //checks if the pixel is inside the circle.
+                SDL_RenderDrawPoint(renderer, centerX + dx, centerY + dy); //if the point is inside the circle, this draws it on the screen at the right place.
+            }
+        }
+    }
+}
+
 int main(){
     printf("Hola Miguel, this is my first c game!");
 
@@ -17,16 +29,22 @@ int main(){
     SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, 0); // Creates a "renderer" -a tool that draws things on your window(like shapes,images,etc).
 
     Player player; //creates a variable called player of type Player
-    player.x = 300; //x coordinates on screen
+    player.x = 0; //x coordinates on screen
     player.y = 0; //y coordinates on screen
-    player.w = 50; //width
-    player.h = 50; //height
+    player.w = 20; //width
+    player.h = 80; //height
 
     Player player2;
-    player2.x = 600;
+    player2.x = 630;
     player2.y = 230;
-    player2.w = 50;
-    player2.h = 50;
+    player2.w = 20;
+    player2.h = 80;
+
+    //Player cube;
+    //cube.x = 300;
+    //cube.y = 300;
+   // cube.w = 15;
+    //cube.h = 15;
 
     bool running = true; //created a boolean variable running and set it's value to true
     SDL_Event event; //created a variable called event of type SDL_Event
@@ -35,17 +53,17 @@ int main(){
         while (SDL_PollEvent(&event)) { // checks the SDL event queue to see if any events(like user actions) have happened.
             if (event.type == SDL_QUIT) running = false; // if the user tries to close the window(clicks the X), then stop the game loop.
             if (event.type == SDL_KEYDOWN) { // if the user pressed a key down, run the code inside this block.
-                if (event.key.keysym.sym == SDLK_LEFT) {
-                    if(player.x > 0){
-                       player.x = player.x - 30;//if the left arrow key is pressed, move the player 30 pixels to the left.
-                    }
-                }
+                //if (event.key.keysym.sym == SDLK_LEFT) {
+                 //   if(player.x > 0){
+                    //   player.x = player.x - 30;//if the left arrow key is pressed, move the player 30 pixels to the left.
+                   // }
+               // }
                     
-                if (event.key.keysym.sym == SDLK_RIGHT){
-                    if(player.x < 580){
-                       player.x = player.x + 30;
-                    }
-                } //if the right arrow key is pressed, move the player 30 pixels to the right.
+               // if (event.key.keysym.sym == SDLK_RIGHT){
+                //    if(player.x < 580){
+                 //      player.x = player.x + 30;
+                   // }
+               // } //if the right arrow key is pressed, move the player 30 pixels to the right.
 
                 if (event.key.keysym.sym == SDLK_UP){ 
                     if(player.y > 0){
@@ -71,6 +89,13 @@ int main(){
         SDL_Rect rect2 = { player2.x, player2.y, player2.w, player2.h };
         SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
         SDL_RenderFillRect(renderer, &rect2);
+
+       // SDL_Rect rect3 = { cube.x, cube.y, cube.w, cube.h };
+        //SDL_SetRenderDrawColor(renderer, 128, 0, 128, 0);
+        //SDL_RenderFillRect(renderer, &rect3);
+
+        SDL_SetRenderDrawColor(renderer, 128, 0, 128, 255);
+        drawCircle(renderer, 320, 240, 10); 
 
         SDL_RenderPresent(renderer); //Final step in rendering - it displays everything you've drawn this frame onto the window.
         SDL_Delay(16); //Pause the program for 16 millionseconds.
