@@ -46,14 +46,22 @@ int main(){
     cube.w = 10;
     cube.h = 10;
 
+    int direction = 1; // 0 goes left, 1 goes right
 
     bool running = true; //created a boolean variable running and set it's value to true
     SDL_Event event; //created a variable called event of type SDL_Event
 
     while (running) {
-        if(cube.x < 620){
+        if (direction == 1){
             cube.x = cube.x + 1;
+            if (cube.x > 620){
+                direction = 0;
+            }
         }
+        if (direction == 0){
+            cube.x = cube.x - 1;
+        }
+        // TO DO: if direction is 0 make it go to the left
         while (SDL_PollEvent(&event)) { // checks the SDL event queue to see if any events(like user actions) have happened.
             if (event.type == SDL_QUIT) running = false; // if the user tries to close the window(clicks the X), then stop the game loop.
             if (event.type == SDL_KEYDOWN) { // if the user pressed a key down, run the code inside this block.
