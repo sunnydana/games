@@ -51,6 +51,9 @@ int main(){
     SDL_Event event; //created a variable called event of type SDL_Event
 
     while (running) {
+        if(cube.x < 620){
+            cube.x = cube.x + 1;
+        }
         while (SDL_PollEvent(&event)) { // checks the SDL event queue to see if any events(like user actions) have happened.
             if (event.type == SDL_QUIT) running = false; // if the user tries to close the window(clicks the X), then stop the game loop.
             if (event.type == SDL_KEYDOWN) { // if the user pressed a key down, run the code inside this block.
@@ -60,11 +63,11 @@ int main(){
                    // }
                // }
                     
-               // if (event.key.keysym.sym == SDLK_RIGHT){
-                //    if(player.x < 580){
-                 //      player.x = player.x + 30;
-                   // }
-               // } //if the right arrow key is pressed, move the player 30 pixels to the right.
+                if (event.key.keysym.sym == SDLK_RIGHT){
+                    if(player.x < 580){
+                       player.x = player.x + 30;
+                    }
+                } //if the right arrow key is pressed, move the player 30 pixels to the right.
 
                 if (event.key.keysym.sym == SDLK_UP){ 
                     if(player.y > 0){
@@ -76,6 +79,7 @@ int main(){
                    if (player.y < 430){
                        player.y = player.y + 30;
                    } //if the down arrow key is pressed, move the player 30 pixels downward. 
+
             }
 
         }
