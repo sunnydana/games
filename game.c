@@ -58,8 +58,11 @@ int main(){
                 direction = 0;
             }
         }
-        if (direction == 0){
-            cube.x = cube.x - 1;
+        if (direction == 0){ // cube should go left
+            cube.x = cube.x - 1; // cube goes to the left by 1 pixel
+            if (cube.x < 0){ // check if cube reached left side of the screen
+                direction = 1; // go right
+            }
         }
         // TO DO: if direction is 0 make it go to the left
         while (SDL_PollEvent(&event)) { // checks the SDL event queue to see if any events(like user actions) have happened.
