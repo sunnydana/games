@@ -40,11 +40,12 @@ int main(){
     player2.w = 20;
     player2.h = 80;
 
-    //Player cube;
-    //cube.x = 300;
-    //cube.y = 300;
-   // cube.w = 15;
-    //cube.h = 15;
+    Player cube;
+    cube.x = 300;
+    cube.y =  230;
+    cube.w = 10;
+    cube.h = 10;
+
 
     bool running = true; //created a boolean variable running and set it's value to true
     SDL_Event event; //created a variable called event of type SDL_Event
@@ -76,6 +77,7 @@ int main(){
                        player.y = player.y + 30;
                    } //if the down arrow key is pressed, move the player 30 pixels downward. 
             }
+
         }
         // && player.x < 0
 
@@ -90,12 +92,10 @@ int main(){
         SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
         SDL_RenderFillRect(renderer, &rect2);
 
-       // SDL_Rect rect3 = { cube.x, cube.y, cube.w, cube.h };
-        //SDL_SetRenderDrawColor(renderer, 128, 0, 128, 0);
-        //SDL_RenderFillRect(renderer, &rect3);
+        SDL_Rect rect3 = { cube.x, cube.y, cube.w, cube.h };
+        SDL_SetRenderDrawColor(renderer, 128, 0, 0, 128);
+        SDL_RenderFillRect(renderer, &rect3);
 
-        SDL_SetRenderDrawColor(renderer, 128, 0, 128, 255);
-        drawCircle(renderer, 320, 240, 10); 
 
         SDL_RenderPresent(renderer); //Final step in rendering - it displays everything you've drawn this frame onto the window.
         SDL_Delay(16); //Pause the program for 16 millionseconds.
