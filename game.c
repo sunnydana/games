@@ -21,6 +21,15 @@ void drawCircle(SDL_Renderer* renderer, int centerX, int centerY, int radius) {
     }
 }
 
+bool checkCollision(Player a, Player b) {
+    return (
+        a.x < b.x + b.w &&  // left edge of a is left of right edge of b
+        a.x + a.w > b.x &&  // right edge of a is right of left edge of b
+        a.y < b.y + b.h &&  // top edge of a is above bottom edge of b
+        a.y + a.h > b.y     // bottom edge of a is below top edge of b
+    );
+}
+
 int main(){
     printf("Hola Miguel, this is my first c game!");
 
@@ -60,7 +69,8 @@ int main(){
         }
         if (direction == 0){ // cube should go left
             cube.x = cube.x - 1; // cube goes to the left by 1 pixel
-            if (cube.x == player.x && cube.y == player.y){ // check if cube reached left side of the screen
+            bool collisionDetected = checkCollision(player, cube);
+            if (collisionDetected){ // check if cube reached left side of the screen
                 direction = 1; // go right
             }
         }
@@ -69,7 +79,7 @@ int main(){
             if (event.type == SDL_QUIT) running = false; // if the user tries to close the window(clicks the X), then stop the game loop.
             if (event.type == SDL_KEYDOWN) { // if the user pressed a key down, run the code inside this block.
                 //if (event.key.keysym.sym == SDLK_LEFT) {
-                 //   if(player.x > 0){
+                 //   if(player.x > 0){             
                     //   player.x = player.x - 30;//if the left arrow key is pressed, move the player 30 pixels to the left.
                    // }
                // }
