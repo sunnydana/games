@@ -60,7 +60,7 @@ int main(){
         }
         if (direction == 0){ // cube should go left
             cube.x = cube.x - 1; // cube goes to the left by 1 pixel
-            if (cube.x < 0){ // check if cube reached left side of the screen
+            if (cube.x == player.x && cube.y == player.y){ // check if cube reached left side of the screen
                 direction = 1; // go right
             }
         }
@@ -76,19 +76,19 @@ int main(){
                     
                 if (event.key.keysym.sym == SDLK_RIGHT){
                     if(player.x < 580){
-                       player.x = player.x + 30;
+                       player.x = player.x + 10;
                     }
                 } //if the right arrow key is pressed, move the player 30 pixels to the right.
 
                 if (event.key.keysym.sym == SDLK_UP){ 
                     if(player.y > 0){
-                        player.y = player.y - 30; 
+                        player.y = player.y - 10; 
                     }
                 }
                  //if the up arrow key is pressed, move the player 30 pixels upward.
                 if (event.key.keysym.sym == SDLK_DOWN)
                    if (player.y < 430){
-                       player.y = player.y + 30;
+                       player.y = player.y + 10;
                    } //if the down arrow key is pressed, move the player 30 pixels downward. 
 
             }
