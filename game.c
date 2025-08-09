@@ -57,6 +57,8 @@ int main(){
 
     int direction = 1; // 0 goes left, 1 goes right
 
+    int rightPaddleDirection = 1; // 0 : up, 1 : down
+
     bool running = true; //created a boolean variable running and set it's value to true
     SDL_Event event; //created a variable called event of type SDL_Event
 
@@ -73,8 +75,26 @@ int main(){
             if (collisionDetected){ // check if cube reached left side of the screen
                 direction = 1; // go right
             }
+
+        if (rightPaddleDirection == 1){
+            player2.y = player2.y + 1;
+            if (player2.y > 400){
+                rightPaddleDirection = 0;
+            }
+        }
+        if (rightPaddleDirection == 0){
+            player2.y = player2.y - 1;
+            bool collisionDetected = checkCollision(player2, cube);
+                if(collisionDetected){
+                    direction = 1;
+                }
+            }
+    
+        
         }
         // TO DO: if direction is 0 make it go to the left
+
+        // IF CUBE IS MOVING TO THE RIGHT THEN RIGHT PADDLE MOVES INTO THE DIRECTION OF THE CUBE
         while (SDL_PollEvent(&event)) { // checks the SDL event queue to see if any events(like user actions) have happened.
             if (event.type == SDL_QUIT) running = false; // if the user tries to close the window(clicks the X), then stop the game loop.
             if (event.type == SDL_KEYDOWN) { // if the user pressed a key down, run the code inside this block.
@@ -124,7 +144,8 @@ int main(){
 
         SDL_RenderPresent(renderer); //Final step in rendering - it displays everything you've drawn this frame onto the window.
         SDL_Delay(16); //Pause the program for 16 millionseconds.
-    }
+      }  
+    
 
     SDL_DestroyRenderer(renderer); // Free the memory used by the renderer and clean up when you're done using it.
     SDL_DestroyWindow(window); // Destroy the SDL window and free the memory used by it.
