@@ -90,21 +90,22 @@ int main() {
       if (collisionDetected) { // check if cube reached left side of the screen
         direction = 1;         // go right
       }
+    }
 
-      if (rightPaddleDirection == 1) {
-        player2.y = player2.y + 1;
-        if (player2.y > 400) {
-          rightPaddleDirection = 0;
-        }
-      }
-      if (rightPaddleDirection == 0) {
-        player2.y = player2.y - 1;
-        bool collisionDetected = checkCollision(player2, cube);
-        if (collisionDetected) {
-          direction = 1;
-        }
+    if (rightPaddleDirection == 1) {
+      player2.y = player2.y - 1;
+      if (player2.y > 400) {
+        rightPaddleDirection = 0;
       }
     }
+    if (rightPaddleDirection == 0) {
+      player2.y = player2.y - 1;
+      bool collisionDetected = checkCollision(player2, cube);
+      if (collisionDetected) {
+        direction = 1;
+      }
+    }
+
     // TO DO: if direction is 0 make it go to the left
 
     // IF CUBE IS MOVING TO THE RIGHT THEN RIGHT PADDLE MOVES INTO THE DIRECTION
@@ -183,7 +184,7 @@ int main() {
   SDL_DestroyWindow(
       window); // Destroy the SDL window and free the memory used by it.
   SDL_Quit();  // Shut down SDL completely and clean up all the systems it
-              // initialized(like video,audio,input,etc).
+               // initialized(like video,audio,input,etc).
 
   // 255, 0, 0, 255)
   // adjust so square doesn't go past screen
@@ -206,7 +207,7 @@ int main() {
 // inside ()
 //  ("Dodge Game", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 650, 490, 0)
 //"Dodge Game" -> title of the window(You'll see this text at the top of the
-//window) SDL_WINDOWPOS_CENTERED -> X position SDL_WINDOWPOS_CENTERED -> Y
+// window) SDL_WINDOWPOS_CENTERED -> X position SDL_WINDOWPOS_CENTERED -> Y
 // position
 //  650 -> Width of the window
 //  490 -> Height of the window
@@ -227,13 +228,14 @@ int main() {
 // the renderer.
 
 //(window,                      // Which window to draw on? (use the one we
-//created earlier)
+// created earlier)
 // -1,                          // Let SDL choose the best graphics driver
 //  0)                          // No special settings (basic renderer)
 
 // Line 17 says:
 //"Give me a drawing tool (renderer) for this window so I can start putting
-//things on the screen!" And it stores that tool in the variable renderer, which
+// things on the screen!" And it stores that tool in the variable renderer,
+// which
 // you’ll use later to do things like: Clear the screen Draw rectangles, images,
 // text Update the screen
 
