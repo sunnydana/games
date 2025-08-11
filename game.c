@@ -98,6 +98,12 @@ int main() {
         rightPaddleDirection = 1;
       }
     }
+    if (rightPaddleDirection == 1) {
+      player2.y = player2.y + 2;
+      if (player2.y >= 410) {
+        rightPaddleDirection = 0;
+      }
+    }
 
     // TO DO: if direction is 0 make it go to the left
 
