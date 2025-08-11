@@ -71,7 +71,7 @@ int main() {
 
   int direction = 1; // 0 goes left, 1 goes right
 
-  int rightPaddleDirection = 1; // 0 : up, 1 : down
+  int rightPaddleDirection = 0; // 0 : up, 1 : down
 
   bool running =
       true; // created a boolean variable running and set it's value to true
@@ -92,17 +92,10 @@ int main() {
       }
     }
 
-    if (rightPaddleDirection == 1) {
-      player2.y = player2.y - 1;
-      if (player2.y > 400) {
-        rightPaddleDirection = 0;
-      }
-    }
     if (rightPaddleDirection == 0) {
       player2.y = player2.y - 1;
-      bool collisionDetected = checkCollision(player2, cube);
-      if (collisionDetected) {
-        direction = 1;
+      if (player2.y == 1) {
+        rightPaddleDirection = 1;
       }
     }
 
