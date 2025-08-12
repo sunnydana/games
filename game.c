@@ -78,11 +78,16 @@ int main() {
   SDL_Event event; // created a variable called event of type SDL_Event
 
   while (running) {
+    // CUBE LOGIC
     if (direction == 1) {
       cube.x = cube.x + 1;
-      if (cube.x > 620) {
+      bool collisionDetected2 = checkCollision(player2, cube);
+      if (collisionDetected2) {
         direction = 0;
       }
+      // if (cube.x > 620) {
+      // direction = 0;
+      //}
     }
     if (direction == 0) {  // cube should go left
       cube.x = cube.x - 1; // cube goes to the left by 1 pixel
@@ -91,7 +96,7 @@ int main() {
         direction = 1;         // go right
       }
     }
-
+    // RIGHT PADDLE LOGIC
     if (rightPaddleDirection == 0) {
       player2.y = player2.y - 1;
       if (player2.y == 1) {
@@ -99,7 +104,7 @@ int main() {
       }
     }
     if (rightPaddleDirection == 1) {
-      player2.y = player2.y + 2;
+      player2.y = player2.y + 1;
       if (player2.y >= 410) {
         rightPaddleDirection = 0;
       }
