@@ -85,6 +85,10 @@ int main() {
       if (collisionDetected2) {
         direction = 0;
       }
+      if (cube.x == 650) {
+        cube.x = 300;
+      }
+
       // if (cube.x > 620) {
       // direction = 0;
       //}
