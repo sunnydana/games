@@ -99,6 +99,10 @@ int main() {
       if (collisionDetected) { // check if cube reached left side of the screen
         direction = 1;         // go right
       }
+
+      if (cube.x == -15) {
+        cube.x = 300;
+      }
     }
     // RIGHT PADDLE LOGIC
     if (rightPaddleDirection == 0) {
@@ -108,7 +112,7 @@ int main() {
       }
     }
     if (rightPaddleDirection == 1) {
-      player2.y = player2.y + 1;
+      player2.y = player2.y + 2;
       if (player2.y >= 410) {
         rightPaddleDirection = 0;
       }
