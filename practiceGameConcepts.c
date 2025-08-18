@@ -1,12 +1,12 @@
 #include <stdio.h>
 
-typedef struct {
+typedef struct { // struct Player 
     int x;
     int y;
-}Player;
+}Player;  // }
 
 int main(){
-    Player p1;
+    Player p1; // struct Player p1
 
     p1.x = 10;
     p1.y = 20;

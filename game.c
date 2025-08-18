@@ -80,14 +80,24 @@ int main() {
   while (running) {
     // CUBE LOGIC
     if (direction == 1) {
+      // if (cube.x == 0) {
       cube.x = cube.x + 1;
+      // cube.y = cube.y - 1;
       bool collisionDetected2 = checkCollision(player2, cube);
       if (collisionDetected2) {
         direction = 0;
       }
+      //(*)ATTEMPT TO MAKE THE CUBE GO DIAGONALLY WHEN IT HITS THE TOP CORNER OF
+      // LEFT PADDLE if (cube.x == 20 && cube.y == 80) {
+      // cube.x = cube.x + 1;
+      // cube.y = cube.y - 1;
+      //}
       if (cube.x == 650) {
         cube.x = 300;
       }
+
+      // cube needs to increase by 1 on the x-axis and decrease by 1 on the
+      // y-axis
 
       // if (cube.x > 620) {
       // direction = 0;
@@ -98,6 +108,11 @@ int main() {
       bool collisionDetected = checkCollision(player, cube);
       if (collisionDetected) { // check if cube reached left side of the screen
         direction = 1;         // go right
+      }
+      // DIAGONALLY
+      if (cube.x == 0 && cube.y == 230) {
+        cube.x = cube.x + 1;
+        cube.y = cube.y - 1;
       }
 
       if (cube.x == -15) {
