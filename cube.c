@@ -25,15 +25,28 @@ int main() {
   bool running = true;
   SDL_Event event; // variable
 
+  int direction = 1; // 1 is right, 0 is left
+
   while (running) {
     while (SDL_PollEvent(&event)) {
       if (event.type == SDL_QUIT) {
         running = false;
       }
     }
-    if (cube.x + cube.w < 650) {
-      cube.x += 1; // move right by one pixel every frame *make the sq  go right
-                   // w/o stopping
+
+    if (direction == 1) {
+      cube.x = cube.x + 1;
+      // detect if cube.x reached the end of the screen and change direction to
+      // 0
+    }
+    if (cube.x > 600) {
+      direction = 0;
+    }
+    if (direction == 0) {
+      cube.x = cube.x - 1;
+    }
+    if (cube.x < 0) {
+      direction = 1;
     }
 
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 0);
